@@ -234,7 +234,7 @@ The database relationship design is implemented using Laravel Eloquent relations
 | **MySQL**        | Relational database                    |
 | **Blade**        | Server-side templating                 |
 | **Eloquent ORM** | Database interaction and relationships |
-| **Tailwind CSS** | User interface styling                 |
+| **CSS**          | User interface styling                 |
 | **JavaScript**   | Client-side interaction                |
 | **Git**          | Version control                        |
 | **GitHub**       | Source code repository                 |
@@ -330,58 +330,3 @@ routes/
 
 ---
 
-## Installation
-
-### Requirements
-
-Make sure the following are installed:
-
-* PHP
-* Composer
-* Node.js & npm
-* MySQL
-* Laravel
-* Git
-
-### 1. Clone Repository
-
-
-git clone https://github.com/USERNAME/REPOSITORY.git
-cd REPOSITORY
-
-
-### 2. Install PHP Dependencies
-
-
-composer install
-
-
-### 3. Install Frontend Dependencies
-
-
-npm install
-
-
-### 4. Configure Environment
-
-Create the `.env` file:
-
-
-cp .env.example .env
-
-
-For Windows PowerShell:
-
-powershell
-Copy-Item .env.example .env
-
-
-Generate the application key:
-
-
-php artisan key:generate
-
-
-### 5. Configure Database
-
-Upda
