@@ -39,16 +39,24 @@ class Workflow
     // Status berikutnya yang boleh dipilih tiap peran.
     public static function nextStatuses($role, $currentStatus)
     {
-        if ($role === 'petugas' && $currentStatus === 'Diajukan') {
-            return ['Diproses'];
-        }
-        if ($role === 'petugas' && $currentStatus === 'Diproses') {
-            return ['Menunggu persetujuan'];
-        }
-        if ($role === 'admin' && $currentStatus === 'Menunggu persetujuan') {
-            return ['Disetujui', 'Ditolak'];
-        }
-        return [];
+    if ($role === 'petugas' && $currentStatus === 'Diajukan') {
+        return ['Diproses'];
+    }
+
+    if ($role === 'petugas' && $currentStatus === 'Diproses') {
+        return ['Menunggu persetujuan'];
+    }
+
+    // Admin mulai melakukan pengecekan.
+    if ($role === 'admin' && $currentStatus === 'Diajukan') {
+        return ['Diproses'];
+    }
+
+    // Setelah admin selesai mengecek.
+    if ($role === 'admin' && $currentStatus === 'Diproses') {
+        return ['Disetujui', 'Ditolak'];
+    }
+    return [];
     }
 
     // Status yang menjadi "tugas" tiap peran di daftar permohonan.

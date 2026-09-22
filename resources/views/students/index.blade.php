@@ -30,6 +30,6 @@
         @endif
     </div>
 
-    {{ $students->links() }}
+    {{ $students->links('components.custom') }}
 </section>
 @endsection

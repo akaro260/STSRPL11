@@ -19,7 +19,8 @@ class PermohonanController extends Controller
         $category = $request->query('category', '');
         $q = trim($request->query('q', ''));
 
-        $query = Permohonan::with('student')->orderByDesc('updated_at');
+        $query = Permohonan::with(['student', 'steps'])
+    ->orderByDesc('updated_at');
 
         // Siswa hanya boleh melihat permohonan miliknya sendiri.
         if ($user->role === 'siswa') {
@@ -43,7 +44,7 @@ class PermohonanController extends Controller
             });
         }
 
-        $permohonan = $query->paginate(15)->withQueryString();
+        $permohonan = $query->paginate(5)->withQueryString();
 
         return view('permohonan.index', compact('permohonan', 'status', 'category', 'q'));
     }
